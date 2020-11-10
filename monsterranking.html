@@ -1,0 +1,79 @@
+<html>
+
+<head>
+  <style>
+    td {
+      width: 240;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="monsterlist.js">
+  </script>
+  <!--  <table>
+    <tr>
+      <td>
+      </td>
+      <td id="Creature1Name">
+      </td>
+      <td id="Creature2Name">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td id="Creature1AC">
+      </td>
+      <td id="Creature2AC">
+      </td>
+    </tr>
+    <tr>
+      <td>
+      </td>
+      <td id="Creature1HP">
+      </td>
+      <td id="Creature2HP">
+      </td>
+    </tr>
+  </table>-->
+  <div id="CreatureName"></div><br>
+  AC:<input class="ac"></input><br>
+  HP:<input class="hp"></input>
+  <script>
+    var comparedItems = 1;
+    var creatureFocus = 1;
+    var item1;
+    var item2;
+    for (i = 0; i < Object.keys(block).length; i++) {
+      block[Object.keys(block)[i]].Rank = i + 1;
+      console.log(block.Tarrasque.Rank);
+    }
+
+    document.getElementById("CreatureName").innerHTML = block[Object.keys(block)[creatureFocus]].Name;
+
+    function compare() {
+      for (c = 1; c < Object.keys(block).length + 1; c++) {
+        if (block[Object.keys(block)[c - 1]].Rank == comparedItems) {
+          document.getElementById("Creature1Name").innerHTML += block[Object.keys(block)[c]].Name;
+          document.getElementById("Creature1AC").innerHTML += block[Object.keys(block)[c]].ac;
+          document.getElementById("Creature1HP").innerHTML += block[Object.keys(block)[c]].hp[0] + "d" + block[Object.keys(block)[c]].hp[1] + "+" + block[Object.keys(block)[c]].hp[2];
+        }
+      }
+      for (d = 1; d < Object.keys(block).length + 1; d++) {
+        if (block[Object.keys(block)[d - 1]].Rank == comparedItems + 1) {
+          document.getElementById("Creature2Name").innerHTML += block[Object.keys(block)[d]].Name;
+          document.getElementById("Creature2AC").innerHTML += block[Object.keys(block)[d]].ac;
+          document.getElementById("Creature2HP").innerHTML += block[Object.keys(block)[d]].hp[0] + "d" + block[Object.keys(block)[d]].hp[1] + "+" + block[Object.keys(block)[d]].hp[2];
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
+
+<!--
+Google Home:
+Sewing Machine:
+-->
