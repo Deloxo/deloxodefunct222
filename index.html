@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=320, initial-scale=1">
+    <meta charset="utf-8">
+    <style>
+      td {
+        font-size: 14px;
+        width: 180px;
+        vertical-align: top;
+      }
+      body, html {
+        min-width: 100%;
+        min-height: 100%;
+        margin: 0;
+        padding: 0;
+        font: Arial 8px;
+      }
+    </style>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="monsterblocksSRD.js"></script>
+    <script>
+        var blocks = JSON.parse(monsters);
+    </script>
+  </head>
+  <body>
+    <table border="1">
+      <tr>
+         <td><button onClick="stay()">----</button>
+           </td>
+         <td><button onClick="change()">
+           ----
+           </button></td>
+      </tr>
+      <tr>
+         <td id="main1"></td>
+         <td id="main2"></td>
+      </tr>
+    </table>
+    <div id="list">
+      
+    </div>
+    <script>
+      console.log(blocks[326]);
+      var check = 0;
+      blocks.sort(function(a,b){
+        if (b.Challenge - a.Challenge != 0) {
+        return parseInt(b.Challenge) - parseInt(a.Challenge);
+        }
+                if (b.Challenge - a.Challenge == 0) {
+                  if (b.ArmorClass - a.ArmorClass != 0) {
+        return parseInt(b.ArmorClass) - parseInt(a.ArmorClass);
+        }
+        if (b.ArmorClass - a.ArmorClass == 0) {
+            return parseInt(b.HitPoints - a.HitPoints);
+}
+
+      }
+});
+        function sorting() {
+          if (check == 326) {check = 0;}
+          document.getElementById("main1").innerHTML = "";
+          document.getElementById("main2").innerHTML = "";
+          document.getElementById("list").innerHTML = "";
+            document.getElementById("main1").innerHTML += blocks[check].name + "<br>";
+            document.getElementById("main2").innerHTML += blocks[check+1].name + "<br>";
+            document.getElementById("main1").innerHTML += blocks[check].meta + "<br>";
+            document.getElementById("main2").innerHTML += blocks[check+1].meta + "<br>";
+            document.getElementById("main1").innerHTML += "AC: " + blocks[check].ArmorClass + "<br>";
+            document.getElementById("main2").innerHTML += "AC: " + blocks[check+1].ArmorClass + "<br>";
+            document.getElementById("main1").innerHTML += "HP:" + blocks[check].HitPoints + "<br>";
+            document.getElementById("main2").innerHTML += "HP: " + blocks[check+1].HitPoints + "<br>";
+            document.getElementById("main1").innerHTML += blocks[check].Speed + "<br>";
+            document.getElementById("main2").innerHTML += blocks[check+1].Speed + "<br>";
+            document.getElementById("main1").innerHTML += "STR " + blocks[check].STR + " " + blocks[check].STR_mod + "<br>" + "DEX " + blocks[check].DEX + " " + blocks[check].DEX_mod + "<br>" + "CON " + blocks[check].CON + " " + blocks[check].CON_mod + "<br>" + "INT " + blocks[check].INT + " " + blocks[check].INT_mod + "<br>" + "WIS " + blocks[check].WIS + " " + blocks[check].WIS_mod + "<br>" + "CHA " + blocks[check].CHA + " " + blocks[check].CHA_mod + "<br>";
+            document.getElementById("main2").innerHTML += "STR " + blocks[check+1].STR + " " + blocks[check+1].STR_mod + "<br>" + "DEX " + blocks[check+1].DEX + " " + blocks[check+1].DEX_mod + "<br>" + "CON " + blocks[check+1].CON + " " + blocks[check+1].CON_mod + "<br>" + "INT " + blocks[check+1].INT + " " + blocks[check+1].INT_mod + "<br>" + "WIS " + blocks[check+1].WIS + " " + blocks[check+1].WIS_mod + "<br>" + "CHA " + blocks[check+1].CHA + " " + blocks[check+1].CHA_mod + "<br>";
+            document.getElementById("main1").innerHTML += blocks[check].SavingThrows + "<br>";
+            document.getElementById("main2").innerHTML += blocks[check+1].SavingThrows + "<br>";
+            document.getElementById("main1").innerHTML += blocks[check].Skills + "<br>";
+            document.getElementById("main2").innerHTML += blocks[check+1].Skills + "<br>";
+            document.getElementById("main1").innerHTML += blocks[check].Senses + "<br>";
+            document.getElementById("main2").innerHTML += blocks[check+1].Senses + "<br>";
+            document.getElementById("main1").innerHTML += blocks[check].Languages + "<br>";
+            document.getElementById("main2").innerHTML += blocks[check+1].Languages + "<br>";
+            document.getElementById("main1").innerHTML += blocks[check].Challenge + "<br>";
+            document.getElementById("main2").innerHTML += blocks[check+1].Challenge + "<br>";
+            document.getElementById("main1").innerHTML += blocks[check].Traits + "<br>";
+            document.getElementById("main2").innerHTML += blocks[check+1].Traits + "<br>";
+            document.getElementById("main1").innerHTML += blocks[check].Actions + "<br>";
+            document.getElementById("main2").innerHTML += blocks[check+1].Actions + "<br>";
+            document.getElementById("main1").innerHTML += blocks[check].LegendaryActions + "<br>";
+            document.getElementById("main2").innerHTML += blocks[check+1].LegendaryActions + "<br>";
+          for (i = 0; i < 327; i++) {
+            document.getElementById("list").innerHTML += i+1 + ". " + blocks[i].name + "<br>";
+          }
+        }
+      var resetChecking = 0;
+      sorting();
+      function stay() {
+         check += 1;
+         sorting();
+         resetChecking += 1;
+         checkForCompletion();
+      }
+      function change() {
+         blocks.swap(check, check+1);
+         check += 1;
+         sorting();
+         resetChecking = 0;
+         checkForCompletion
+      }
+      function checkForCompletion() {
+        if (resetChecking >= 327) {
+           document.getElementById("main1").innerHTML = "";
+document.getElementById("main2").innerHTML = "";
+
+        }
+      }
+    </script>
+  </body>
+</html>
