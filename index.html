@@ -6,8 +6,8 @@
     <style>
       #count {
         position: absolute;
-        top: 250px;
-        left: 400px;
+        top: 150px;
+        left: 500px;
       }
       td {
         font-size: 14px;
@@ -43,9 +43,9 @@
       </tr>
     </table>
     <div id="list">
-      
+
     </div>
-    <div class="count">0</div>
+    <div id="count">0</div>
     <script>
       console.log(blocks[326]);
       var check = 0;
@@ -106,7 +106,7 @@
          check += 1;
          sorting();
          resetChecking += 1;
-         document.getElementsByClassName("count")[0].innerHTML = "resetChecking";
+         document.getElementById("count").innerHTML = resetChecking;
          checkForCompletion();
       }
       function change() {
@@ -114,7 +114,7 @@
          check += 1;
          sorting();
          resetChecking = 0;
-         document.getElementsByClassName("count")[0].innerHTML = "resetChecking";
+         document.getElementById("count").innerHTML = resetChecking;
          checkForCompletion();
       }
       function checkForCompletion() {
