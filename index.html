@@ -4,6 +4,11 @@
     <meta name="viewport" content="width=320, initial-scale=1">
     <meta charset="utf-8">
     <style>
+      #count {
+        position: absolute;
+        top: 250px;
+        left: 400px;
+      }
       td {
         font-size: 14px;
         width: 180px;
@@ -40,6 +45,7 @@
     <div id="list">
       
     </div>
+    <div class="count"></div>
     <script>
       console.log(blocks[326]);
       var check = 0;
@@ -100,6 +106,7 @@
          check += 1;
          sorting();
          resetChecking += 1;
+         document.getElementsByClassName("count")[0].innerHTML = "resetChecking";
          checkForCompletion();
       }
       function change() {
@@ -107,13 +114,13 @@
          check += 1;
          sorting();
          resetChecking = 0;
-         checkForCompletion
+         document.getElementsByClassName("count")[0].innerHTML = "resetChecking";
+         checkForCompletion();
       }
       function checkForCompletion() {
         if (resetChecking >= 327) {
            document.getElementById("main1").innerHTML = "";
-document.getElementById("main2").innerHTML = "";
-
+           document.getElementById("main2").innerHTML = "";
         }
       }
     </script>
