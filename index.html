@@ -19,6 +19,9 @@
         margin: auto;
         top: 50px;
       }
+      button {
+        margin: auto;
+      }
       body, html {
         background-color: black;
         color: white;
@@ -35,6 +38,9 @@
         background-color: black;
         width: 20px;
       }
+      #topSection {
+        background-color: black;
+      }
     </style>
     <link rel="stylesheet" href="style.css"/>
     <script src="monsterblocksSRD.js"></script>
@@ -45,10 +51,10 @@
   <body>
     <table>
       <tr>
-         <td><button onClick="stay()">V This one is better. V</button>
+         <td id="topSection"><button onClick="stay()">V This one is better. V</button>
            </td>
         <td id="paddingCell"></td>
-         <td><button onClick="change()">
+         <td id="topSection"><button onClick="change()">
            V This one is better. V
            </button></td>
       </tr>
