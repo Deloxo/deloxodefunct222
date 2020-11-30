@@ -31,6 +31,10 @@
       #list {
         margin: auto;
       }
+      #paddingCell {
+        background-color: black;
+        width: 20px;
+      }
     </style>
     <link rel="stylesheet" href="style.css"/>
     <script src="monsterblocksSRD.js"></script>
@@ -43,12 +47,14 @@
       <tr>
          <td><button onClick="stay()">V This one is better. V</button>
            </td>
+        <td id="paddingCell"></td>
          <td><button onClick="change()">
            V This one is better. V
            </button></td>
       </tr>
       <tr>
          <td id="main1"></td>
+         <td id="paddingCell"></td>
          <td id="main2"></td>
       </tr>
     </table>
